@@ -1,0 +1,14 @@
+!
+  neighbor {{ neighborIP }} {
+    description "{{ neighbor_desc }}";
+    family inet {
+      unicast {
+        prefix-limit {
+          maximum 100000;
+          teardown 80 idle-timeout 240;
+        }
+      }
+    }
+    peer-as {{ neighborASN }};
+    multipath;
+!
